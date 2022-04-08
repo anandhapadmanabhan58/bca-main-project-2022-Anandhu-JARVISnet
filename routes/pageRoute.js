@@ -6,6 +6,7 @@ const {
   addBroadbandPlans,
   addServiceProvider,
   about,
+  viewsProvider,
 } = require('../controller/pageController');
 
 //routes
@@ -15,6 +16,7 @@ router.get('/addCablePlans', addCablePlans);
 router.get('/addBroadbandPlans', addBroadbandPlans);
 router.get('/addServiceProvider', addServiceProvider);
 router.get('/about', about);
+router.get('/viewServiceProvider', viewsProvider);
 
 //exporting router
 module.exports = router;
