@@ -4,30 +4,45 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
 
     return (
-        <div>
-            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">NewsMonkey</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link" aria-current="page" to="/">Home</Link>
-                            </li>
-                            <li className="nav-item"><Link className="nav-link" to="/business">Business</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/entertainment">Entertainment</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/general">General</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/health">Health</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/science">Science</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/sports">Sports</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/technology">Technology</Link></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+    <div class="container">
+      <a href="/" class="navbar-brand">JARVIS<span class="text-primary">news</span></a>
+
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbarContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <Link className="nav-link" to="">Home</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/business">Business</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/entertainment">Entertainment</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/general">General</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/health">Health</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/science">Science</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/sports">Sports</Link>
+          </li>
+          <li class="nav-item">
+            <Link className="nav-link" to="/technology">Technology</Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     )
 
 }
