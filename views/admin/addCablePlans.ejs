@@ -114,18 +114,23 @@
     
             const formData = new FormData(form);
     
-            console.log(formData);
+            //console.log(formData);
     
             formData.forEach((val, key) => {
               formBody[key] = val;
             });
     
             axios
-              .post('/api/v1/serviceProvider', formBody)
+              .post('/api/v1/addCablePlan', formBody)
               .then((res) => {
             if (res.status == 201){
-              alert('Service provider created');
+              alert('cable plan added');
               window.location = "/";
+            }
+            else if(res.status==200)
+            {
+              alert('add a valid provider');
+              window.location = "/"; 
             }
 
           })

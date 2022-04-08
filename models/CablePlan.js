@@ -24,5 +24,9 @@ const cablePlanSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 module.exports = mongoose.model('CablePlan', cablePlanSchema);
