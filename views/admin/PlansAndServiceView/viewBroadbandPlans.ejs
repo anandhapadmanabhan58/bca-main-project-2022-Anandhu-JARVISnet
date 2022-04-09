@@ -26,8 +26,8 @@
             <tr>
               <th scope="col">NO.</th>
               <th scope="col">PLAN NAME</th>
-              <th scope="col">SET</th>
-              <th scope="col" >Cable Plans</th>
+              <th scope="col">PRICE</th>
+              <th scope="col" >Data in GB</th>
               <th scope="col">DELETE</th>
             </tr>
           </thead>
@@ -36,9 +36,9 @@
             <tr>
               <th scope="row"><%=i+1 %></th>
               <td><%=sp[i].BserviceProvider %></td>
-              <td><a href="" class="btn btn-primary">broadband plans</a></td>
-              <td><a href="" class="btn btn-primary">cable plans</a></td>
-              <td><a href="" class="btn btn-dark">delete</a></td>
+              <td><%=sp[i].Bprice %></td>
+              <td><%=sp[i].BplanDescription %></td>
+              <td><form method="post" action="http://localhost:4050/api/v1/deleteBroaband/<%=sp[i].id%>"><button type="submit" name="sub" class="btn btn-dark">DELETE</button></form></td>
             </tr>
             <%} %>
           </tbody>
