@@ -70,9 +70,9 @@ const serviceProvider = async (req, res) => {
 
 //delete broadband plan
 
-const deleteBroadband = (req, res) => {
+const deleteBroadband = async (req, res) => {
   const delId = req.params.id;
-  const deletion = BroadbandPlan.findByIdAndRemove(delId, (err) => {
+  const deletion = await BroadbandPlan.findByIdAndRemove(delId, (err) => {
     if (!err) {
       res.redirect('/');
     } else {
@@ -80,4 +80,22 @@ const deleteBroadband = (req, res) => {
     }
   });
 };
-module.exports = { cablePlan, serviceProvider, broadbandPlan, deleteBroadband };
+
+//delete cable
+const deleteCable = async (req, res) => {
+  const deId = req.params.id;
+  const deletion = await CablePlan.findByIdAndRemove(deId, (err) => {
+    if (!err) {
+      res.redirect('/');
+    } else {
+      res.send(err);
+    }
+  });
+};
+module.exports = {
+  cablePlan,
+  serviceProvider,
+  broadbandPlan,
+  deleteBroadband,
+  deleteCable,
+};

@@ -2,6 +2,7 @@
 
 const ServiceProvider = require('../models/ServiceProvider');
 const BroadbandPlan = require('../models/BroadbandPlan');
+const CablePlan = require('../models/CablePlan');
 
 const home = (req, res) => {
   res.render('admin/home');
@@ -38,14 +39,30 @@ const viewsProvider = async (req, res) => {
   }).clone();
 };
 
+// plan find
 const viewbroadband = async (req, res) => {
   const serviceProvider = req.params.serviceProvider;
   try {
-    const query = await BroadbandPlan.find({})
+    let query = await BroadbandPlan.find({})
       .where('BserviceProvider')
       .equals(serviceProvider);
     res.render('admin/PlansAndServiceView/viewBroadbandPlans', {
       sp: query,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+//view cable plans
+const viewCable = async (req, res) => {
+  const serviceProvider = req.params.serviceProvider;
+  try {
+    let query = await CablePlan.find({})
+      .where('CserviceProvider')
+      .equals(serviceProvider);
+    res.render('admin/PlansAndServiceView/viewCablePlan', {
+      cp: query,
     });
   } catch (err) {
     console.error(err);
@@ -59,4 +76,5 @@ module.exports = {
   about,
   viewsProvider,
   viewbroadband,
+  viewCable,
 };
