@@ -27,18 +27,18 @@
               <th scope="col">NO.</th>
               <th scope="col">PLAN NAME</th>
               <th scope="col">PRICE</th>
-              <th scope="col" >Data in GB</th>
+              <th scope="col" >Chanels</th>
               <th scope="col">DELETE</th>
             </tr>
           </thead>
           <tbody>
-            <% for(var i=0;i<cp.length;i++) {%>
+            <% for(var i=0;i<data.length;i++) {%>
             <tr>
               <th scope="row"><%=i+1 %></th>
-              <td><%=cp[i].BserviceProvider %></td>
-              <td><%=cp[i].Bprice %></td>
-              <td><%cp[i].BplanDescription %></td>
-              <td><form method="post" action="http://localhost:4050/api/v1/deleteCable/<%=cp[i].id%>"><button type="submit" name="sub" class="btn btn-dark">DELETE</button></form></td>
+              <td><%=data[i].CserviceProvider %></td>
+              <td><%=data[i].Cprice %></td>
+              <td><%=data[i].CplanDescription%></td>
+              <td><form method="post" action="http://localhost:4050/api/v1/deleteCable/<%=data[i].id%>"><button type="submit" name="sub" class="btn btn-dark">DELETE</button></form></td>
             </tr>
             <%} %>
           </tbody>

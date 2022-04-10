@@ -60,10 +60,13 @@ const viewCable = async (req, res) => {
   try {
     let query = await CablePlan.find({})
       .where('CserviceProvider')
-      .equals(serviceProvider);
-    res.render('admin/PlansAndServiceView/viewCablePlan', {
-      cp: query,
-    });
+      .equals(serviceProvider)
+      .exec((err, doc) => {
+        if (err) throw err;
+        res.render('admin/PlansAndServiceView/viewCablePlan', {
+          data: doc,
+        });
+      });
   } catch (err) {
     console.error(err);
   }

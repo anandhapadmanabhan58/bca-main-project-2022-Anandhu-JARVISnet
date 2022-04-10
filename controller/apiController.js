@@ -43,7 +43,7 @@ const broadbandPlan = async (req, res) => {
   try {
     const provider = req.body.BserviceProvider;
     const findBprovider = await ServiceProvider.findOne({ provider });
-    if (findBprovider) {
+    if (!findBprovider) {
       res.status(200).json({ status: 'fail', data: findBprovider });
     } else {
       const broadband = await BroadbandPlan.create(broadbandPlanDetails);
@@ -78,7 +78,7 @@ const deleteBroadband = async (req, res) => {
     } else {
       res.send(err);
     }
-  });
+  }).clone();
 };
 
 //delete cable
@@ -90,7 +90,7 @@ const deleteCable = async (req, res) => {
     } else {
       res.send(err);
     }
-  });
+  }).clone();
 };
 module.exports = {
   cablePlan,
