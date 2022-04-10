@@ -9,6 +9,9 @@ const {
   viewsProvider,
   viewbroadband,
   viewCable,
+  payment,
+  viewCablePayment,
+  viewBroadbandPayment,
 } = require('../controller/pageController');
 
 //routes
@@ -21,6 +24,9 @@ router.get('/about', about);
 router.get('/viewServiceProvider', viewsProvider);
 router.get('/viewbroadbandPlan/:serviceProvider', viewbroadband);
 router.get('/viewcablePlan/:serviceProvider', viewCable);
+router.get('/payment', payment);
+router.get('/viewCablePayment', viewCablePayment);
+router.get('/viewBroadbandPayment', viewBroadbandPayment);
 
 //exporting router
 module.exports = router;

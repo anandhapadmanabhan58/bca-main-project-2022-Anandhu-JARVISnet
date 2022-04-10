@@ -3,6 +3,10 @@
 const ServiceProvider = require('../models/ServiceProvider');
 const BroadbandPlan = require('../models/BroadbandPlan');
 const CablePlan = require('../models/CablePlan');
+const cablePayment = require('../models/PaymentCable');
+const broadbandPayment = require('../models/PaymentBroadband');
+
+//controllers
 
 const home = (req, res) => {
   res.render('admin/home');
@@ -71,6 +75,37 @@ const viewCable = async (req, res) => {
     console.error(err);
   }
 };
+
+const payment = (req, res) => {
+  res.render('admin/payment');
+};
+
+const viewCablePayment = (req, res) => {
+  try {
+    let query = cablePayment.find({}, (err, doc) => {
+      if (err) throw err;
+      res.render('admin/PlansAndServiceView/viewCablePayment', {
+        data: doc,
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const viewBroadbandPayment = (req, res) => {
+  try {
+    let query = broadbandPayment.find({}, (err, docs) => {
+      if (err) throw err;
+      res.render('admin/PlansAndServiceView/viewBroadbandPayment', {
+        data: docs,
+      });
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 module.exports = {
   home,
   addCablePlans,
@@ -80,4 +115,7 @@ module.exports = {
   viewsProvider,
   viewbroadband,
   viewCable,
+  payment,
+  viewCablePayment,
+  viewBroadbandPayment,
 };
